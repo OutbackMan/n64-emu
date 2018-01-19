@@ -10,9 +10,17 @@
 #define ROM_FILE_BUFFER_SIZE (40 * MEGABYTE) 
 #define ROM_FILE_NAME_BUFFER (256)
 
+#define GPR_REGISTER_COUNT 32
+#define FPR_REGISTER_COUNT 32
+
 uint8_t rom_file_buffer[ROM_FILE_BUFFER_SIZE] = {0};
 
 unsigned char rom_file_name[ROM_FILE_NAME_BUFFER] = {0};
+
+struct Cpu {
+	uint64_t gpr[GPR_REGISTER_COUNT];
+	double fpr[FPR_REGISTER_COUNT]; // Need ad-hoc solution for portability
+};
 
 int main(int argc, char **argv)
 {

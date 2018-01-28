@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	long rom_file_size = ftell(rom_file);
 	assert(rom_file_size * 8 < ROM_FILE_BUFFER_SIZE);
 	fseek(rom_file, 0, SEEK_SET);
-	fread(rom_file_buffer, rom_file_size, sizeof(uint8_t), rom_file);
+	fread(rom_file_buffer, rom_file_size, sizeof rom_file_buffer[0]), rom_file);
 
 	fclose(rom_file);
 
